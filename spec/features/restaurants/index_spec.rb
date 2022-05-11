@@ -8,10 +8,6 @@ RSpec.describe "restaurants index page", type: :feature do
     visit "/restaurants"
 
     expect(page).to have_content(restaurant_1.name)
-    # expect(page).to have_content("Capacity: #{restaurant_1.guest_capacity}")
-    # expect(page).to have_content("Open for business: #{restaurant_1.open}")
     expect(page).to have_content(restaurant_2.name)
-    # expect(page).to have_content("Capacity: #{restaurant_2.guest_capacity}")
-    # expect(page).to have_content("Open for business: #{restaurant_2.open}")
   end
 end
