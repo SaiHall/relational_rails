@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Dishes index page", type: :feature do
-  it 'can list all dishes in database' do
+  it 'can list all dishes in database, as well as their details' do
     dish_1 = Dish.create!(name: "Fried Pickles", in_season: true, cost: 8)
     dish_2 = Dish.create!(name: "Banana Pudding", in_season: false, cost: 5)
 
