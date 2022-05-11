@@ -15,10 +15,14 @@ RSpec.describe "restaurants show page", type: :feature do
     expect(page).to have_content(restaurant_1.name)
     expect(page).to have_content("Capacity: 35")
     expect(page).to have_content("Open for business: true")
+    expect(page).to have_content("Created at: #{restaurant_1.created_at}")
+    expect(page).to have_content("Last updated: #{restaurant_1.updated_at}")
 
     visit "/restaurants/#{restaurant_2.id}"
     expect(page).to have_content(restaurant_2.name)
     expect(page).to have_content("Capacity: 105")
     expect(page).to have_content("Open for business: true")
+    expect(page).to have_content("Created at: #{restaurant_2.created_at}")
+    expect(page).to have_content("Last updated: #{restaurant_2.updated_at}")
   end
 end
