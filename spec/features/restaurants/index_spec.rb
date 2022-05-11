@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-Rspec.describe "restaurants index page", type: :feature do
-  it "can see all restaurant names, capacity, and open status" do
+RSpec.describe "restaurants index page", type: :feature do
+  it "can see all restaurant names" do
     restaurant_1 = Restaurant.create!(name: "Billy's BBQ Bodega", open: true, guest_capacity: 35)
     restaurant_2 = Restaurant.create!(name: "Flapjack's", open: true, guest_capacity: 105)
 
