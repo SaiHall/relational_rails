@@ -7,4 +7,8 @@ class Restaurant < ApplicationRecord
   def self.newest_first
     order(created_at: :desc)
   end
+
+  def dish_count
+    dishes.count
+  end
 end
