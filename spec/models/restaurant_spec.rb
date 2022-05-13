@@ -20,4 +20,22 @@ RSpec.describe Restaurant, type: :model do
       expect(Restaurant.all.newest_first[1].name).to eq("Billy's BBQ Bodega")
     end
   end
+  describe 'instance methods' do
+    before(:each) do
+      @billy = Restaurant.create!(name: "Billy's BBQ Bodega", open: true, guest_capacity: 35)
+      @flapjack = Restaurant.create!(name: "Flapjack's", open: true, guest_capacity: 105)
+      @fry_pickle = @billy.dishes.create!(name: "Fried Pickles", in_season: true, cost: 8)
+      @banana_pud = @flapjack.dishes.create!(name: "Banana Pudding", in_season: false, cost: 5)
+    end
+
+    it 'can count how many dishes are associated with a restaurant' do
+      expect(@flapjack.dish_count).to eq(1)
+      expect(@billy.dish_count).to eq(1)
+
+      chicken_wing = @billy.dishes.create!(name: "Chicken Wings", in_season: true, cost: 12)
+
+      expect(@flapjack.dish_count).to eq(1)
+      expect(@billy.dish_count).to eq(2)
+    end
+  end
 end
