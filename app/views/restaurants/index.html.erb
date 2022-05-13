@@ -1,4 +1,7 @@
 <h1>All Restaurants</h1>
+<section id="restaurantIndex">
   <% @restaurants.each do |restaurant| %>
-  <h3><%= restaurant.name %> <sup><%= restaurant.created_at %></sup></h3>
+  <h3 class="restaurant" style="display: inline;"><%= restaurant.name %></h3>
+  <p style="display: inline;"><%= restaurant.created_at %></p><br>
   <% end %>
+</section>
