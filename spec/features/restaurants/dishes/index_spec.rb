@@ -18,4 +18,22 @@ RSpec.describe 'Specific restaurant dishes index', type: :feature do
     expect(page).to have_content("Added on: #{@fry_pickle.created_at}")
     expect(page).to have_content("Last updated at: #{@fry_pickle.updated_at}")
   end
+
+  describe 'Functioning links' do
+    it 'has a working link to the dishes index' do
+      visit "/restaurants/#{@billy.id}/dishes"
+      expect(page).to have_content("All Dishes")
+      click_on('All Dishes')
+      expect(page).to have_current_path("/dishes")
+      expect(page).to have_content("Fried Pickles")
+    end
+
+    it 'has a working link to the restaurants index' do
+      visit "/restaurants/#{@billy.id}/dishes"
+      expect(page).to have_content("All Restaurants")
+      click_on('All Restaurants')
+      expect(page).to have_current_path("/restaurants")
+      expect(page).to have_content("Flapjack's")
+    end
+  end
 end
