@@ -1,8 +1,19 @@
-<h1><%= @restaurant.name %> Menu</h1>
-<% @dishes.each do |dish| %>
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="application.css">
+  </head>
+<body>
+  <h1><%= @restaurant.name %> Menu</h1>
+  <nav class="nav-bar">
+    <a href="/dishes">All Dishes</a>
+    <a href="/restaurants">All Restaurants</a>
+  </nav>
+  <% @dishes.each do |dish| %>
   <h3><%= dish.name %></h3>
   <p>Currently in season: <%= dish.in_season %></p>
   <p>Cost: $<%= dish.cost %></p>
   <p>Added on: <%= dish.created_at %></p>
   <p>Last updated at: <%= dish.updated_at %></p>
   <% end %>
+</body>

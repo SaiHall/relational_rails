@@ -1,7 +1,18 @@
-<h1>All Restaurants</h1>
-<section id="restaurantIndex">
-  <% @restaurants.each do |restaurant| %>
-  <h3 class="restaurant" style="display: inline;"><%= restaurant.name %></h3>
-  <p style="display: inline;"><%= restaurant.created_at %></p><br>
-  <% end %>
-</section>
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="application.css">
+  </head>
+<body>
+  <h1>All Restaurants</h1>
+  <nav class="nav-bar">
+    <a href="/dishes">All Dishes</a>
+    <a href="/restaurants">All Restaurants</a>
+  </nav>
+  <section id="restaurantIndex">
+    <% @restaurants.each do |restaurant| %>
+    <h3 class="restaurant" style="display: inline;"><%= restaurant.name %></h3>
+    <p style="display: inline;"><%= restaurant.created_at %></p><br>
+    <% end %>
+  </section>
+</body>
