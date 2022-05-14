@@ -39,4 +39,13 @@ RSpec.describe "restaurants show page", type: :feature do
     visit "/restaurants/#{@billy.id}"
     expect(page).to have_content("Total Dishes: 2")
   end
+
+  describe 'Functioning links' do
+    it 'has a working link to the dishes index' do
+      visit "/restaurants/#{@billy.id}"
+      expect(page).to have_content("All Dishes")
+      click_on('All Dishes')
+      expect(page).to have_current_path("/dishes")
+    end
+  end
 end
