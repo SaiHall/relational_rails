@@ -56,5 +56,14 @@ RSpec.describe "restaurants show page", type: :feature do
       expect(page).to have_current_path("/restaurants")
       expect(page).to have_content("Flapjack's")
     end
+# As a visitor
+# When I visit a parent show page ('/parents/:id')
+# Then I see a link to take me to that parent's `child_table_name` page ('/parents/:id/child_table_name')
+    it 'has a working link to that restaurants specific dish page' do
+      visit "/restaurants/#{@billy.id}"
+      expect(page).to have_content("#{@billy.name}'s Menu")
+      click_link("#{@billy.name}'s Menu")
+      expect(page).to have_current_path("/restaurants/#{@billy.id}/dishes")
+    end
   end
 end
