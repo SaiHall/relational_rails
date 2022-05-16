@@ -6,8 +6,8 @@
 <body>
 <h1>All Dishes</h1>
   <nav class="nav-bar">
-    <a href="/dishes">All Dishes</a>
-    <a href="/restaurants">All Restaurants</a>
+    <%= link_to "All Dishes", "/dishes" %>
+    <%= link_to "All Restaurants", "/restaurants" %>
   </nav>
   <% @dishes.each do |dish| %>
   <h3><%= dish.name %></h3>

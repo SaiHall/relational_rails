@@ -6,8 +6,9 @@
 <body>
   <h1><%= @restaurant.name %></h1>
   <nav class="nav-bar">
-    <a href="/dishes">All Dishes</a>
-    <a href="/restaurants">All Restaurants</a>
+    <%= link_to "All Dishes", "/dishes" %>
+    <%= link_to "All Restaurants", "/restaurants" %>
+    <%= link_to "#{@restaurant.name}'s Menu", "/restaurants/#{@restaurant.id}/dishes" %>
   </nav>
   <p>Capacity: <%= @restaurant.guest_capacity %></p>
   <p>Open for business: <%= @restaurant.open %></p>
