@@ -62,7 +62,6 @@ RSpec.describe 'Specific restaurant dishes index', type: :feature do
     end
     it 'has working links to the dish edit page' do
       visit "/restaurants/#{@billy.id}/dishes"
-      save_and_open_page
 
       click_link("Update Fried Pickles")
 
