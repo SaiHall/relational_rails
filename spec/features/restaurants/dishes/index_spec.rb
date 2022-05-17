@@ -19,6 +19,21 @@ RSpec.describe 'Specific restaurant dishes index', type: :feature do
     expect(page).to have_content("Last updated at: #{@fry_pickle.updated_at}")
   end
 
+  it 'displays dishes in alphabetical order' do
+    toast = @billy.dishes.create!(name: "Texas-style Toast", in_season: false, cost: 6)
+    ribs = @billy.dishes.create!(name: "Ribs - Bone-in", in_season: true, cost: 17)
+
+
+    visit "/restaurants/#{@billy.id}/dishes"
+
+    within '#restaurantDishesIndex' do
+
+      expect(page.all('.dishes')[0]).to have_content("Fried Pickles")
+      expect(page.all('.dishes')[1]).to have_content("Ribs - Bone-in")
+      expect(page.all('.dishes')[2]).to have_content("Texas-style Toast")
+    end
+  end
+
   describe 'Functioning links' do
     it 'has a working link to the dishes index' do
       visit "/restaurants/#{@billy.id}/dishes"
