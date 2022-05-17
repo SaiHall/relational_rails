@@ -47,37 +47,4 @@ RSpec.describe "restaurants index page", type: :feature do
       expect(page).to have_content("Flapjack's")
     end
   end
-
-  describe 'New restaurant creation' do
-# As a visitor
-# When I visit the Parent Index page
-# Then I see a link to create a new Parent record, "New Parent"
-# When I click this link
-# Then I am taken to '/parents/new' where I  see a form for a new parent record
-# When I fill out the form with a new parent's attributes:
-# And I click the button "Create Parent" to submit the form
-# Then a `POST` request is sent to the '/parents' route,
-# a new parent record is created,
-# and I am redirected to the Parent Index page where I see the new Parent displayed.
-    it 'has a link that leads to a page to create a new restaurant' do
-      visit "/restaurants"
-
-      click_link("New Restaurant")
-
-      expect(page).to have_current_path("/restaurants/new")
-    end
-
-    it 'has a form to create a new restaurant, creates a restaurant when submitted, and redirects to index' do
-      visit "/restaurants/new"
-
-      fill_in 'Name', with: "Canadian Cranberry Caravan"
-      choose :open, with: false #radio button
-      fill_in 'Guest capacity', with: '25'
-
-      click_button("Create Restaurant")
-
-      expect(page).to have_current_path("/restaurants")
-      expect(page).to have_content("Canadian Cranberry Caravan")
-    end
-  end
 end
