@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="application.css">
+</head>
+<body>
+  <h1>New Dish for <%= "#{@restaurant.name}" %></h1>
+  <nav class="nav-bar">
+    <%= link_to "All Dishes", "/dishes" %>
+    <%= link_to "All Restaurants", "/restaurants" %>
+  </nav>
+  <%= form_with url: "/restaurants/#{@restaurant.id}/dishes/new", method: :post, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %><br>
+  <%= form.radio_button :in_season, true %>
+  <%= form.label :in_season, "Dish is in season" %>
+  <%= form.radio_button :in_season, false %>
+  <%= form.label :in_season, "Dish is out of season" %><br>
+  <%= form.label :cost %>
+  <%= form.text_field :cost %><br>
+  <%= form.hidden_field :restaurant_id, value: "#{@restaurant.id}" %>
+  <%= form.submit 'Create Dish' %>
+  <% end %>
+
+</body>
