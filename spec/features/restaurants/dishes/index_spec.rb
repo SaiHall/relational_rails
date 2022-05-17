@@ -27,11 +27,19 @@ RSpec.describe 'Specific restaurant dishes index', type: :feature do
     visit "/restaurants/#{@billy.id}/dishes"
 
     within '#restaurantDishesIndex' do
+      expect(page.all('.dishes')[0]).to have_content("Fried Pickles")
+      expect(page.all('.dishes')[1]).to have_content("Texas-style Toast")
+      expect(page.all('.dishes')[2]).to have_content("Ribs - Bone-in")
+    end
 
+    click_link("Sort Dishes Alphabetically")
+
+    within '#restaurantDishesIndex' do
       expect(page.all('.dishes')[0]).to have_content("Fried Pickles")
       expect(page.all('.dishes')[1]).to have_content("Ribs - Bone-in")
       expect(page.all('.dishes')[2]).to have_content("Texas-style Toast")
     end
+
   end
 
   describe 'Functioning links' do
