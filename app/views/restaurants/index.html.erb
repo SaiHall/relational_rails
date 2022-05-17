@@ -2,12 +2,13 @@
 <html>
 <head>
   <link rel="stylesheet" href="application.css">
-  </head>
+</head>
 <body>
   <h1>All Restaurants</h1>
   <nav class="nav-bar">
     <%= link_to "All Dishes", "/dishes" %>
     <%= link_to "All Restaurants", "/restaurants" %>
+    <%= link_to "New Restaurant", "/restaurants/new" %>
   </nav>
   <section id="restaurantIndex">
     <% @restaurants.each do |restaurant| %>
