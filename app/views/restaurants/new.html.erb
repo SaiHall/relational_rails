@@ -11,13 +11,13 @@
   </nav>
   <%= form_with url: "/restaurants/new", method: :post, local: true do |form| %>
   <%= form.label :name %>
-  <%= form.text_field :name %>
+  <%= form.text_field :name %><br>
   <%= form.radio_button :open, true %>
   <%= form.label :open, "Restaurant is open" %>
   <%= form.radio_button :open, false %>
-  <%= form.label :open, "Restaurant is closed" %>
+  <%= form.label :open, "Restaurant is closed" %><br>
   <%= form.label :guest_capacity %>
-  <%= form.text_field :guest_capacity %>
+  <%= form.text_field :guest_capacity %><br>
   <%= form.submit 'Create Restaurant' %>
   <% end %>
 
