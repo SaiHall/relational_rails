@@ -6,4 +6,22 @@ class DishesController < ApplicationController
   def show
     @dish = Dish.find(params[:id])
   end
+
+  def edit
+    # binding.pry
+    @dish = Dish.find(params[:id])
+  end
+
+  def update
+    dish = Dish.find(params[:id])
+    dish.update_attributes(dish_params)
+
+    redirect_to "/dishes/#{dish.id}"
+  end
+
+
+  private
+    def dish_params
+      params.permit(:name, :in_season, :cost)
+    end
 end
