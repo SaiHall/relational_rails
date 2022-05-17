@@ -8,6 +8,7 @@
   <nav class="nav-bar">
     <%= link_to "All Dishes", "/dishes" %>
     <%= link_to "All Restaurants", "/restaurants" %>
+    <%= link_to "Update Dish", "/dishes/#{@dish.id}/edit" %>
   </nav>
   <p>Currently in season: <%= @dish.in_season %></p>
   <p>Cost: $<%= @dish.cost %></p>

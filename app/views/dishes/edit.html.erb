@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="application.css">
+</head>
+<body>
+  <h1>Update <%= "#{@dish.name}" %></h1>
+  <nav class="nav-bar">
+    <%= link_to "All Dishes", "/dishes" %>
+    <%= link_to "All Restaurants", "/restaurants" %>
+  </nav>
+  <%= form_with url: "/dishes/#{@dish.id}", method: :patch, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %><br>
+  <%= form.radio_button :in_season, true %>
+  <%= form.label :in_season, "Dish is in season" %>
+  <%= form.radio_button :in_season, false %>
+  <%= form.label :in_season, "Dish is out of season" %><br>
+  <%= form.label :cost %>
+  <%= form.text_field :cost %><br>
+  <%= form.submit 'Update Dish' %>
+  <% end %>
+
+</body>
