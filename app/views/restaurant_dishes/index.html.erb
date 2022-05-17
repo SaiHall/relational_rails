@@ -10,11 +10,13 @@
     <%= link_to "All Restaurants", "/restaurants" %>
     <%= link_to "Create Dish", "/restaurants/#{@restaurant.id}/dishes/new" %>
   </nav>
-  <% @dishes.each do |dish| %>
-  <h3><%= dish.name %></h3>
-  <p>Currently in season: <%= dish.in_season %></p>
-  <p>Cost: $<%= dish.cost %></p>
-  <p>Added on: <%= dish.created_at %></p>
-  <p>Last updated at: <%= dish.updated_at %></p>
-  <% end %>
+  <section id='restaurantDishesIndex'>
+    <% @dishes.alphabetize.each do |dish| %>
+    <h3 class="dishes"><%= dish.name %></h3>
+    <p>Currently in season: <%= dish.in_season %></p>
+    <p>Cost: $<%= dish.cost %></p>
+    <p>Added on: <%= dish.created_at %></p>
+    <p>Last updated at: <%= dish.updated_at %></p>
+    <% end %>
+  </<section>
 </body>
