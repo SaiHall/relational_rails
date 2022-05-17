@@ -9,6 +9,7 @@
     <%= link_to "All Dishes", "/dishes" %>
     <%= link_to "All Restaurants", "/restaurants" %>
     <%= link_to "#{@restaurant.name}'s Menu", "/restaurants/#{@restaurant.id}/dishes" %>
+    <%= link_to "Update #{@restaurant.name}", "/restaurants/#{@restaurant.id}/edit" %>
   </nav>
   <p>Capacity: <%= @restaurant.guest_capacity %></p>
   <p>Open for business: <%= @restaurant.open %></p>
