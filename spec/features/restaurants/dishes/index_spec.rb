@@ -60,5 +60,18 @@ RSpec.describe 'Specific restaurant dishes index', type: :feature do
       expect(page).to have_content("Flapjack's")
       expect(page).to have_content("Billy's BBQ Bodega")
     end
+    it 'has working links to the dish edit page' do
+      visit "/restaurants/#{@billy.id}/dishes"
+
+      click_link("Update Fried Pickles")
+
+      expect(page).to have_current_path("/dishes/#{@fry_pickle.id}/edit")
+
+      visit "/restaurants/#{@flapjack.id}/dishes"
+
+      click_link("Update Banana Pudding")
+
+      expect(page).to have_current_path("/dishes/#{@banana_pud.id}/edit")
+    end
   end
 end
