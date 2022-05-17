@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="application.css">
+</head>
+<body>
+  <h1>Update Restaurant</h1>
+  <nav class="nav-bar">
+    <%= link_to "All Dishes", "/dishes" %>
+    <%= link_to "All Restaurants", "/restaurants" %>
+  </nav>
+  <%= form_with url: "/restaurants/#{@restaurant.id}", method: :patch, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %><br>
+  <%= form.radio_button :open, true %>
+  <%= form.label :open, "Restaurant is open" %>
+  <%= form.radio_button :open, false %>
+  <%= form.label :open, "Restaurant is closed" %><br>
+  <%= form.label :guest_capacity %>
+  <%= form.text_field :guest_capacity %><br>
+  <%= form.submit 'Update Restaurant' %>
+  <% end %>
+
+</body>
