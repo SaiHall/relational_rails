@@ -18,6 +18,7 @@
     <p>Cost: $<%= dish.cost %></p>
     <p>Added on: <%= dish.created_at %></p>
     <p>Last updated at: <%= dish.updated_at %></p>
+    <%= link_to "Update #{dish.name}", "/dishes/#{dish.id}/edit" %>
     <% end %>
   </<section>
 </body>
