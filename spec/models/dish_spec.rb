@@ -12,4 +12,22 @@ RSpec.describe Dish, type: :model do
   describe 'relationships' do
     it {should belong_to :restaurant}
   end
+
+  describe 'class methods' do
+    it 'can sort out out of season dishes' do
+      billy = Restaurant.create!(name: "Billy's BBQ Bodega", open: true, guest_capacity: 35)
+      flapjack = Restaurant.create!(name: "Flapjack's", open: true, guest_capacity: 105)
+      fry_pickle = billy.dishes.create!(name: "Fried Pickles", in_season: true, cost: 8)
+      seasonal = Dish.by_in_season
+
+      expect(seasonal.pluck(:name)).to eq(["Fried Pickles"])
+
+      waffle = flapjack.dishes.create!(name: "Belgian Bonanza", in_season: false, cost: 13)
+      seasonal = Dish.by_in_season
+      all_dish = Dish.all
+
+      expect(all_dish.pluck(:name)).to eq(["Fried Pickles", "Belgian Bonanza"])
+      expect(seasonal.pluck(:name)).to eq(["Fried Pickles"])
+    end
+  end
 end
