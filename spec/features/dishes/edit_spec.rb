@@ -29,7 +29,7 @@ RSpec.describe "dishes edit page", type: :feature do
       expect(page).to have_content("Cost: $11")
     end
   end
-  describe 'Dish update: index page' do
+  describe 'Dish update: index page' do #do I need different tests for these?
     it 'has a link to the update page from the show page' do
       visit "/dishes/"
 
