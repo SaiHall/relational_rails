@@ -10,5 +10,7 @@ class Restaurant < ApplicationRecord
 
   def dish_count #Ruby? ActiveRecord? Refactor this.
     dishes.count
+  # dishes.count("restaurant_id = #{self.id}") #Absolutely active record
+  # self.dishes.count
   end
 end
