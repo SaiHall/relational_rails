@@ -39,6 +39,7 @@ RSpec.describe 'Specific restaurant dishes index', type: :feature do
       visit "/restaurants/#{@billy.id}/dishes"
       expect(page).to have_content("All Dishes")
       click_on('All Dishes')
+
       expect(page).to have_current_path("/dishes")
       expect(page).to have_content("Fried Pickles")
     end
@@ -49,6 +50,7 @@ RSpec.describe 'Specific restaurant dishes index', type: :feature do
       click_on('All Restaurants')
       expect(page).to have_current_path("/restaurants")
       expect(page).to have_content("Flapjack's")
+      expect(page).to have_content("Billy's BBQ Bodega")
     end
   end
 end
