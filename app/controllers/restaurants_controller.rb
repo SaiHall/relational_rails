@@ -20,8 +20,6 @@ class RestaurantsController < ApplicationController
   def update
     restaurant = Restaurant.find(params[:id])
     restaurant.update_attributes(rest_params)
-    # restaurant.save
-
     redirect_to "/restaurants/#{restaurant.id}"
   end
 
