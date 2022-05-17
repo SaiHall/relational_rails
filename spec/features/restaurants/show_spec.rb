@@ -7,10 +7,6 @@ RSpec.describe "restaurants show page", type: :feature do
     @fry_pickle = @billy.dishes.create!(name: "Fried Pickles", in_season: true, cost: 8)
     @banana_pud = @flapjack.dishes.create!(name: "Banana Pudding", in_season: false, cost: 5)
   end
-  # As a visitor
-  # When I visit '/parents/:id'
-  # Then I see the parent with that id including the parent's attributes:
-  # - data from each column that is on the parent table
   it 'can display a restaurant by id, including attributes'do
 
     visit "/restaurants/#{@billy.id}"
@@ -29,9 +25,6 @@ RSpec.describe "restaurants show page", type: :feature do
     expect(page).to have_content("Last updated: #{@flapjack.updated_at}")
   end
 
-  # As a visitor
-  # When I visit a parent's show page
-  # I see a count of the number of children associated with this parent
   it 'can display the number of dishes associated with the restaurant' do
     visit "/restaurants/#{@billy.id}"
     expect(page).to have_content("Total Dishes: 1")
@@ -56,9 +49,7 @@ RSpec.describe "restaurants show page", type: :feature do
       expect(page).to have_current_path("/restaurants")
       expect(page).to have_content("Flapjack's")
     end
-# As a visitor
-# When I visit a parent show page ('/parents/:id')
-# Then I see a link to take me to that parent's `child_table_name` page ('/parents/:id/child_table_name')
+    
     it 'has a working link to that restaurants specific dish page' do
       visit "/restaurants/#{@billy.id}"
       expect(page).to have_content("#{@billy.name}'s Menu")
