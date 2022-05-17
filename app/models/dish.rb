@@ -7,4 +7,8 @@ class Dish < ApplicationRecord
   def self.by_in_season
     all.where(in_season: true)
   end
+
+  def self.alphabetize
+    order(:name)
+  end
 end
