@@ -46,5 +46,19 @@ RSpec.describe "restaurants index page", type: :feature do
       expect(page).to have_current_path("/restaurants")
       expect(page).to have_content("Flapjack's")
     end
+
+    it 'has working links to the edit page' do
+      visit "/restaurants"
+
+      click_link("Update Billy's BBQ Bodega")
+
+      expect(page).to have_current_path("/restaurants/#{@billy.id}/edit")
+
+      visit "/restaurants"
+
+      click_link("Update Flapjack's")
+
+      expect(page).to have_current_path("/restaurants/#{@flapjack.id}/edit")
+    end
   end
 end
