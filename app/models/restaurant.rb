@@ -8,7 +8,7 @@ class Restaurant < ApplicationRecord
     order(created_at: :desc)
   end
 
-  def dish_count
+  def dish_count #Ruby? ActiveRecord? Refactor this.
     dishes.count
   end
 end
