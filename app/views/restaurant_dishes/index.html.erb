@@ -8,6 +8,7 @@
   <nav class="nav-bar">
     <%= link_to "All Dishes", "/dishes" %>
     <%= link_to "All Restaurants", "/restaurants" %>
+    <%= link_to "Create Dish", "/restaurants/#{@restaurant.id}/dishes/new" %>
   </nav>
   <% @dishes.each do |dish| %>
   <h3><%= dish.name %></h3>
