@@ -1,11 +1,6 @@
 class RestaurantDishesController < ApplicationController
   def index
     @restaurant = Restaurant.find(params[:restaurant_id])
-    if request.query_parameters[:sort] == "alphabetically"
-      @dishes = @restaurant.dishes.alphabetize
-    else
-      @dishes = @restaurant.dishes
-    end
   end
 
   def new
