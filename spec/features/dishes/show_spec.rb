@@ -29,6 +29,18 @@ RSpec.describe "Dishes show page", type: :feature do
     expect(page).to have_content("Last updated at: #{@banana_pud.updated_at}")
   end
 
+  it 'has a link to delete the dish' do
+    visit "/dishes/#{@fry_pickle.id}"
+
+    expect(page).to have_content(@fry_pickle.name)
+
+    click_link("Delete Fried Pickles")
+
+    expect(page).to have_current_path("/dishes")
+    expect(page).to_not have_content("Fried Pickles")
+    expect(page).to have_content(@banana_pud.name)
+  end
+
   describe 'Functioning links' do
     it 'has a working link to the dishes index' do
       visit "/dishes/#{@fry_pickle.id}"
