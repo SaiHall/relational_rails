@@ -44,6 +44,18 @@ RSpec.describe "Dishes index page", type: :feature do
     expect(page).to have_content("Banana Pudding")
   end
 
+  it 'has a link to delete the dish' do
+    visit "/dishes"
+
+    expect(page).to have_content("Banana Pudding")
+
+    click_link("Delete Banana Pudding")
+
+    expect(page).to have_current_path("/dishes")
+    expect(page).to_not have_content("Banana Pudding")
+    expect(page).to have_content("Fried Pickles")
+  end
+
 
   describe 'Functioning links' do
     it 'has a working link to the dishes index' do

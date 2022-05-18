@@ -28,6 +28,18 @@ RSpec.describe "restaurants index page", type: :feature do
     end
   end
 
+  it 'has a link to delete the restaurant' do
+    visit "/restaurants"
+
+    expect(page).to have_content("Billy's BBQ Bodega")
+
+    click_link("Delete Billy's BBQ Bodega")
+
+    expect(page).to have_current_path("/restaurants")
+    expect(page).to_not have_content("Billy's BBQ Bodega")
+    expect(page).to have_content("Flapjack's")
+  end
+
   describe 'Functioning links' do
     it 'has a working link to the dishes index' do
       visit "/restaurants"
