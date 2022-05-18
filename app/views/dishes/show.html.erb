@@ -14,4 +14,5 @@
   <p>Cost: $<%= @dish.cost %></p>
   <p>Added on: <%= @dish.created_at %></p>
   <p>Last updated at: <%= @dish.updated_at %></p>
+  <%= link_to "Delete #{@dish.name}", "/dishes/#{@dish.id}", method: :delete %>
 </body>
