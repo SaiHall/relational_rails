@@ -19,6 +19,17 @@ RSpec.describe Restaurant, type: :model do
       expect(Restaurant.all.newest_first[0].name).to eq("Flapjack's")
       expect(Restaurant.all.newest_first[1].name).to eq("Billy's BBQ Bodega")
     end
+
+    it 'can sort children based off parameters, and give default if none provided' do
+      billy = Restaurant.create!(name: "Billy's BBQ Bodega", open: true, guest_capacity: 35)
+      fry_pickle = billy.dishes.create!(name: "Fried Pickles", in_season: true, cost: 8)
+      banana_pud = billy.dishes.create!(name: "Banana Pudding", in_season: false, cost: 5)
+      waffle = billy.dishes.create!(name: "Belgian Bonanza", in_season: false, cost: 13)
+
+      expect(billy.filtered(nil, 10)).to eq([waffle])
+      expect(billy.filtered("alphabetically")).to eq([banana_pud, waffle, fry_pickle])
+      expect(billy.filtered).to eq([fry_pickle, banana_pud, waffle])
+    end
   end
   describe 'instance methods' do
     before(:each) do
