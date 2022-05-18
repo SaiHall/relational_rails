@@ -9,13 +9,12 @@ class Dish < ApplicationRecord
   end
 
   def self.filtered_by(sort = nil, value = nil)
-    if sort == "alphabetically" && !value.nil?
-      order(:name) if value == ""
-      Dish.where("cost > #{value.to_i}").order(:name)
-    elsif !value.nil?
-      Dish.where("cost > #{value.to_i}")
-    else
-      Dish.all
-    end
+    if sort == "alphabetically"
+     order(:name)
+   elsif !value.nil?
+     Dish.where("cost > #{value}")
+   else
+     Dish.all
+   end
   end
 end

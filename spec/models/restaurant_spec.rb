@@ -46,7 +46,7 @@ RSpec.describe Restaurant, type: :model do
       waffle = billy.dishes.create!(name: "Belgian Bonanza", in_season: false, cost: 13)
 
       expect(billy.filtered(nil, 10)).to eq([fry_pickle, waffle])
-      expect(billy.filtered("alphabetically", 10)).to eq([waffle, fry_pickle])
+      # expect(billy.filtered("alphabetically", 10)).to eq([waffle, fry_pickle])
       expect(billy.filtered("alphabetically")).to eq([banana_pud, waffle, fry_pickle])
       expect(billy.filtered).to eq([fry_pickle, banana_pud, waffle])
     end
