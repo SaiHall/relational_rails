@@ -6,6 +6,7 @@ RSpec.describe "Dishes show page", type: :feature do
     @flapjack = Restaurant.create!(name: "Flapjack's", open: true, guest_capacity: 105)
     @fry_pickle = @billy.dishes.create!(name: "Fried Pickles", in_season: true, cost: 8)
     @banana_pud = @flapjack.dishes.create!(name: "Banana Pudding", in_season: false, cost: 5)
+    @waffle = @flapjack.dishes.create!(name: "Belgian Bonanza", in_season: true, cost: 13)
   end
   # As a visitor
   # When I visit '/child_table_name/:id'
@@ -38,7 +39,7 @@ RSpec.describe "Dishes show page", type: :feature do
 
     expect(page).to have_current_path("/dishes")
     expect(page).to_not have_content("Fried Pickles")
-    expect(page).to have_content(@banana_pud.name)
+    expect(page).to have_content(@waffle.name)
   end
 
   describe 'Functioning links' do
