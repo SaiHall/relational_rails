@@ -7,7 +7,6 @@ RSpec.describe 'Specific restaurant dishes index', type: :feature do
     @flapjack = Restaurant.create!(name: "Flapjack's", open: true, guest_capacity: 105)
     @fry_pickle = @billy.dishes.create!(name: "Fried Pickles", in_season: true, cost: 8)
     @banana_pud = @flapjack.dishes.create!(name: "Banana Pudding", in_season: false, cost: 5)
-
   end
 
   it 'can display all dishes a particular restaurant has, and that dishes attributes' do
@@ -23,7 +22,6 @@ RSpec.describe 'Specific restaurant dishes index', type: :feature do
   it 'displays dishes in alphabetical order' do
     toast = @billy.dishes.create!(name: "Texas-style Toast", in_season: false, cost: 6)
     ribs = @billy.dishes.create!(name: "Ribs - Bone-in", in_season: true, cost: 17)
-
 
     visit "/restaurants/#{@billy.id}/dishes"
 
@@ -54,12 +52,10 @@ RSpec.describe 'Specific restaurant dishes index', type: :feature do
 
     click_button "Only return records with more than 'number' of 'cost'"
 
-
     expect(page.current_path).to eq("/restaurants/#{@billy.id}/dishes")
     expect(page).to_not have_content("Fried Pickles")
     expect(page).to have_content("Belgian Bonanza")
     expect(page).to have_content("Sunrise Cider-cakes")
-
   end
 
   describe 'Functioning links' do
@@ -80,6 +76,7 @@ RSpec.describe 'Specific restaurant dishes index', type: :feature do
       expect(page).to have_content("Flapjack's")
       expect(page).to have_content("Billy's BBQ Bodega")
     end
+
     it 'has working links to the dish edit page' do
       visit "/restaurants/#{@billy.id}/dishes"
 
