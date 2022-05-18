@@ -31,7 +31,17 @@ RSpec.describe "Dishes index page", type: :feature do
     expect(page).to_not have_content("Belgian Bonanza")
     expect(page).to_not have_content("Currently in season: false")
     expect(page).to_not have_content("Cost: $13")
+  end
 
+  it 'Dishes are deleted when a parent is deleted' do
+    visit "/restaurants/#{@billy.id}"
+
+    click_link("Delete Billy's BBQ Bodega")
+
+    visit "/dishes"
+
+    expect(page).to_not have_content("Fried Pickles")
+    expect(page).to have_content("Banana Pudding")
   end
 
 
