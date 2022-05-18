@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/restaurants/new', to: 'restaurants#new'
   get '/restaurants/:id', to: 'restaurants#show'
   get '/restaurants/:id/edit', to: 'restaurants#edit'
+  get '/restaurants/:id/delete', to: 'restaurants#delete'
 
   get '/dishes', to: 'dishes#index'
   get '/dishes/:id', to: 'dishes#show'

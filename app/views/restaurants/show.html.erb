@@ -16,4 +16,5 @@
   <p>Created at: <%= @restaurant.created_at %></p>
   <p>Last updated: <%= @restaurant.updated_at %></p>
   <p>Total Dishes: <%= @restaurant.dish_count %></p>
+  <%= link_to "Delete #{@restaurant.name}", "/restaurants/#{@restaurant.id}/delete" %>
 </body>
