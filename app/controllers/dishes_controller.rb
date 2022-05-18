@@ -19,6 +19,12 @@ class DishesController < ApplicationController
     redirect_to "/dishes/#{dish.id}"
   end
 
+  def delete
+    dish = Dish.find(params[:id])
+    dish.destroy
+    redirect_to "/dishes"
+  end
+
 
   private
     def dish_params
