@@ -9,13 +9,14 @@
   <%= form.label :value %>
   <%= form.number_field :value %>
   <%= form.hidden_field :threshold, value: "true" %>
+  <%= form.hidden_field :sort, value: params[:sort] %>
   <%= form.submit "Only return records with more than 'number' of 'cost'" %>
   <% end %>
   <nav class="nav-bar">
     <%= link_to "All Dishes", "/dishes" %>
     <%= link_to "All Restaurants", "/restaurants" %>
     <%= link_to "Create Dish", "/restaurants/#{@restaurant.id}/dishes/new" %>
-    <%= link_to "Sort Dishes Alphabetically", "/restaurants/#{@restaurant.id}/dishes?sort=alphabetically" %>
+    <%= link_to "Sort Dishes Alphabetically", "/restaurants/#{@restaurant.id}/dishes?sort=alphabetically&value=#{params[:value]}" %>
   </nav>
   <section id='restaurantDishesIndex'>
     <% @restaurant.filtered(params[:sort], params[:value]).each do |dish| %>
