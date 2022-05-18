@@ -8,9 +8,7 @@ RSpec.describe "Dishes show page", type: :feature do
     @banana_pud = @flapjack.dishes.create!(name: "Banana Pudding", in_season: false, cost: 5)
     @waffle = @flapjack.dishes.create!(name: "Belgian Bonanza", in_season: true, cost: 13)
   end
-  # As a visitor
-  # When I visit '/child_table_name/:id'
-  # Then I see the child with that id including the child's attributes:
+  
   it 'can show details on a single dish from database' do
 
     visit "/dishes/#{@fry_pickle.id}"
