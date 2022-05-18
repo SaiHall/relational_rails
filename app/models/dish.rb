@@ -8,7 +8,13 @@ class Dish < ApplicationRecord
     all.where(in_season: true)
   end
 
-  def self.alphabetize
-    order(:name)
+  def self.filtered_by(sort = nil, value = nil)
+    if sort == "alphabetically"
+      order(:name)
+    elsif !value.nil?
+      Dish.where("cost > #{value}")
+    else
+      Dish.all
+    end
   end
 end

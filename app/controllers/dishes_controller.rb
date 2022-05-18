@@ -25,7 +25,6 @@ class DishesController < ApplicationController
     redirect_to "/dishes"
   end
 
-
   private
     def dish_params
       params.permit(:name, :in_season, :cost)

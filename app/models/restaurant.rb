@@ -13,4 +13,8 @@ class Restaurant < ApplicationRecord
   # dishes.count("restaurant_id = #{self.id}") #Absolutely active record
   # self.dishes.count
   end
+
+  def filtered(sort = nil, value = nil)
+    dishes.filtered_by(sort, value)
+  end
 end

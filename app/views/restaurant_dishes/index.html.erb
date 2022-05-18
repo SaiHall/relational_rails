@@ -5,6 +5,12 @@
   </head>
 <body>
   <h1><%= @restaurant.name %> Menu</h1>
+  <%= form_with url: "/restaurants/#{@restaurant.id}/dishes", method: :get, local: true do |form| %>
+  <%= form.label :value %>
+  <%= form.number_field :value %>
+  <%= form.hidden_field :threshold, value: "true" %>
+  <%= form.submit "Only return records with more than 'number' of 'cost'" %>
+  <% end %>
   <nav class="nav-bar">
     <%= link_to "All Dishes", "/dishes" %>
     <%= link_to "All Restaurants", "/restaurants" %>
@@ -12,7 +18,7 @@
     <%= link_to "Sort Dishes Alphabetically", "/restaurants/#{@restaurant.id}/dishes?sort=alphabetically" %>
   </nav>
   <section id='restaurantDishesIndex'>
-    <% @dishes.each do |dish| %>
+    <% @restaurant.filtered(params[:sort], params[:value]).each do |dish| %>
     <h3 class="dishes"><%= dish.name %></h3>
     <p>Currently in season: <%= dish.in_season %></p>
     <p>Cost: $<%= dish.cost %></p>
