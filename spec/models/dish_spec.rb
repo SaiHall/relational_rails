@@ -52,16 +52,16 @@ RSpec.describe Dish, type: :model do
       expect(menu.filtered_by(nil, 10)).to eq([waffle])
     end
 
-    it 'can return dishes with a cost over x, and sort alphabetically' do
-      billy = Restaurant.create!(name: "Billy's BBQ Bodega", open: true, guest_capacity: 35)
-      fry_pickle = billy.dishes.create!(name: "Fried Pickles", in_season: true, cost: 11)
-      banana_pud = billy.dishes.create!(name: "Banana Pudding", in_season: false, cost: 5)
-      waffle = billy.dishes.create!(name: "Belgian Bonanza", in_season: false, cost: 13)
-
-      menu = Dish.all
-
-      expect(menu.filtered_by("alphabetically", 10)).to eq([ waffle, fry_pickle])
-    end
+    # it 'can return dishes with a cost over x, and sort alphabetically' do
+    #   billy = Restaurant.create!(name: "Billy's BBQ Bodega", open: true, guest_capacity: 35)
+    #   fry_pickle = billy.dishes.create!(name: "Fried Pickles", in_season: true, cost: 11)
+    #   banana_pud = billy.dishes.create!(name: "Banana Pudding", in_season: false, cost: 5)
+    #   waffle = billy.dishes.create!(name: "Belgian Bonanza", in_season: false, cost: 13)
+    #
+    #   menu = Dish.all
+    #
+    #   expect(menu.filtered_by("alphabetically", 10)).to eq([ waffle, fry_pickle])
+    # end
 
     it 'will return no sorting without an argument' do
       billy = Restaurant.create!(name: "Billy's BBQ Bodega", open: true, guest_capacity: 35)
